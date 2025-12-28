@@ -96,7 +96,7 @@ def json_cookie_to_text(json_path: str) -> str:
 #bloomberg 获取最新文章
 def get_bloomberg_latest():
     cookie_string = json_cookie_to_text("playwright_storage_state.json")
-    url = "https://www.bloomberg.com./lineup-next/api/stories?types=ARTICLE%2CFEATURE%2CINTERACTIVE%2CLETTER%2CEXPLAINERS&pageNumber=1&limit=25"
+    url = "https://www.bloomberg.com/lineup-next/api/stories?types=ARTICLE%2CFEATURE%2CINTERACTIVE%2CLETTER%2CEXPLAINERS&pageNumber=1&limit=25"
     headers = {
         "authority":"www.bloomberg.com",
         "priority":"u=0, i",
@@ -113,7 +113,7 @@ def get_bloomberg_latest():
         }
     resp = requests.get(url, headers=headers, timeout=10)
     resp.raise_for_status()
-    # print(resp.content)
+    print(resp.content)
     data = resp.json()
     
     articles = []
